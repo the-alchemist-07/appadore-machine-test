@@ -1,6 +1,10 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.kotlin.parcelize)
+    alias(libs.plugins.dagger.hilt.android)
+    alias(libs.plugins.navigation.safeargs)
 }
 
 android {
@@ -45,4 +49,31 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+
+    // Lifecycle + ViewModel & LiveData
+    implementation(libs.lifecycle.runtime.ktx)
+    implementation(libs.lifecycle.viewmodel.ktx)
+    implementation(libs.lifecycle.livedata.ktx)
+
+    // Navigation Component
+    implementation(libs.navigation.fragment.ktx)
+    implementation(libs.navigation.ui.ktx)
+
+    // Coroutines
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
+
+    // Dagger Hilt
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.annotation)
+
+    // Moshi - JSON Parser
+    implementation(libs.moshi)
+    ksp(libs.moshi.annotation)
+
+    // SplashScreen API
+    implementation(libs.splashscreen)
+
+    implementation(libs.datastore)
 }
