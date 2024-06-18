@@ -1,4 +1,4 @@
-package com.appadore.test.core.common
+package com.appadore.test.core.managers
 
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
@@ -6,6 +6,7 @@ import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.core.longPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
+import com.appadore.test.core.common.Constants
 import javax.inject.Inject
 
 class DataStoreManager @Inject constructor(
