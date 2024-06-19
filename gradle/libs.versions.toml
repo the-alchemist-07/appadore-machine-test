@@ -17,6 +17,7 @@ moshi = "1.14.0"
 splash = "1.0.1"
 ksp = "1.9.0-1.0.11"
 datastore = "1.1.1"
+optView = "1.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -40,6 +41,7 @@ moshi = { group = "com.squareup.moshi", name = "moshi", version.ref = "moshi" }
 moshi-annotation = { group = "com.squareup.moshi", name = "moshi-kotlin-codegen", version.ref = "moshi" }
 splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "splash" }
 datastore = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "datastore" }
+otp-view = { group = "com.github.appsfeature", name = "otp-view", version.ref = "optView" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

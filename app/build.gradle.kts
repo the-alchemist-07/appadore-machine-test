@@ -37,6 +37,11 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    buildFeatures {
+        viewBinding = true
+        buildConfig = true
+    }
 }
 
 dependencies {
@@ -75,5 +80,9 @@ dependencies {
     // SplashScreen API
     implementation(libs.splashscreen)
 
+    // Datastore Preferences
     implementation(libs.datastore)
+
+    // OTP View
+    implementation(libs.otp.view)
 }
