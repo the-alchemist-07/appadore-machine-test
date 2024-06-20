@@ -1,6 +1,8 @@
 package com.appadore.test.core.common
 
+import android.app.Activity
 import android.content.Context
+import android.view.inputmethod.InputMethodManager
 import com.appadore.test.data.dto.QuestionsDto
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.Moshi

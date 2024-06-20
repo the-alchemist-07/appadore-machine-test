@@ -6,6 +6,7 @@ import androidx.datastore.preferences.core.PreferenceDataStoreFactory
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStoreFile
 import com.appadore.test.core.common.Constants
+import com.appadore.test.core.managers.DataStoreManager
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -25,4 +26,9 @@ object DataModule {
         )
     }
 
+    @Singleton
+    @Provides
+    fun provideDataStoreManager(dataStore: DataStore<Preferences>): DataStoreManager {
+        return DataStoreManager(dataStore)
+    }
 }

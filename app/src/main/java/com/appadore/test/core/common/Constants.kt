@@ -8,4 +8,5 @@ object Constants {
     const val GAME_STATUS_STARTED = "STARTED"
     const val GAME_STATUS_OVER = "OVER"
 
+    const val ONE_SECOND: Long = 1000
 }

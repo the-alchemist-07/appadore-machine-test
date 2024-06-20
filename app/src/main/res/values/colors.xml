@@ -4,6 +4,7 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="primary">#FFFF7043</color>
+    <color name="primaryDark">#CE5B36</color>
     <color name="lightGreyCard">#4DD9D9D9</color>
     <color name="lightGreyDivider">#1A000000</color>
     <color name="greyBackground">#FFD9D9D9</color>

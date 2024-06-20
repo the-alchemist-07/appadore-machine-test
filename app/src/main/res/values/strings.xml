@@ -8,4 +8,7 @@
     <string name="minute">Minute</string>
     <string name="second">Second</string>
     <string name="save">Save</string>
+    <string name="challenge">Challenge</string>
+    <string name="will_start_in">Will start in</string>
+    <string name="schedule_success_message">Challenge scheduled successfully</string>
 </resources>
