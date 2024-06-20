@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import com.appadore.test.R
 import com.appadore.test.databinding.FragmentScheduleBinding
 import com.google.android.material.snackbar.Snackbar
@@ -99,7 +100,9 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
         binding.tvCountdownTimer.text = arrangedCounter
 
         if (countdown == 0) {
-            // TODO: Navigate to questions page.
+            findNavController().navigate(
+                ScheduleFragmentDirections.actionScheduleFragmentToQuestionFragment(1)
+            )
         }
     }
 

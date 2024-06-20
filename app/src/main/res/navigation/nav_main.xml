@@ -9,6 +9,20 @@
         android:id="@+id/scheduleFragment"
         android:name="com.appadore.test.ui.schedule.ScheduleFragment"
         android:label="fragment_schedule"
-        tools:layout="@layout/fragment_schedule" />
+        tools:layout="@layout/fragment_schedule" >
+        <action
+            android:id="@+id/action_scheduleFragment_to_questionFragment"
+            app:destination="@id/questionFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/questionFragment"
+        android:name="com.appadore.test.ui.question.QuestionFragment"
+        android:label="fragment_question"
+        tools:layout="@layout/fragment_question">
+        <argument
+            android:name="questionNumber"
+            app:argType="integer" />
+    </fragment>
 
 </navigation>
