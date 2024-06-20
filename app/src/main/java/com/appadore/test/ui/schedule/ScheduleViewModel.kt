@@ -23,15 +23,15 @@ class ScheduleViewModel @Inject constructor(
 ) : ViewModel() {
 
     private lateinit var timer: Timer
-    var hour = 0
-    var minute = 0
-    var second = 0
+    var hour: Int? = null
+    var minute: Int? = null
+    var second: Int? = null
 
     private val _state = Channel<ScheduleState>()
     val state = _state.receiveAsFlow()
 
     fun validateTime() {
-        if (hour == 0 || minute == 0 || second == 0)
+        if (hour == null || minute == null || second == null)
             viewModelScope.launch {
                 _state.send(ScheduleState.ShowMessage("Enter a valid time"))
             }
@@ -41,9 +41,9 @@ class ScheduleViewModel @Inject constructor(
     private fun saveTimeInDatastore() {
         val calendar = Calendar.getInstance()
         calendar.time = Date()
-        calendar.set(Calendar.HOUR_OF_DAY, hour)
-        calendar.set(Calendar.MINUTE, minute)
-        calendar.set(Calendar.SECOND, second)
+        calendar.set(Calendar.HOUR_OF_DAY, hour!!)
+        calendar.set(Calendar.MINUTE, minute!!)
+        calendar.set(Calendar.SECOND, second!!)
 
         viewModelScope.launch(Dispatchers.IO) {
             dataStoreManager.saveScheduledTime(calendar.time.time)

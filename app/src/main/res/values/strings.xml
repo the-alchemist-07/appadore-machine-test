@@ -11,4 +11,7 @@
     <string name="challenge">Challenge</string>
     <string name="will_start_in">Will start in</string>
     <string name="schedule_success_message">Challenge scheduled successfully</string>
+    <string name="guess_the_country_from_the_flag">Guess the country from the flag?</string>
+    <string name="correct">Correct</string>
+    <string name="wrong">Wrong</string>
 </resources>

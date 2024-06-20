@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.question.QuestionFragment">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/topAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/primary" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardSchedule"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/half_common_margin"
+        android:layout_marginTop="@dimen/common_margin"
+        android:backgroundTint="@color/lightGreyCard"
+        app:cardCornerRadius="@dimen/half_common_margin"
+        app:cardElevation="@dimen/no_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topAppBar"
+        app:strokeWidth="@dimen/no_margin">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="@dimen/common_margin">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvTimer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/dr_timer_background"
+                android:paddingHorizontal="@dimen/large_margin"
+                android:paddingVertical="@dimen/common_margin"
+                android:text="00:00"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_sub_title"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/flags_challenge"
+                android:textAllCaps="true"
+                android:textColor="@color/primary"
+                android:textSize="@dimen/text_heading"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/tvTimer"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvTimer"
+                app:layout_constraintTop_toTopOf="@id/tvTimer" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:dividerColor="@color/lightGreyDivider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvTimer" />
+
+            <View
+                android:id="@+id/viewQuestionNo"
+                android:layout_width="46dp"
+                android:layout_height="42dp"
+                android:layout_marginTop="@dimen/half_common_margin"
+                android:background="@drawable/dr_question_number_background"
+                android:paddingHorizontal="@dimen/common_margin"
+                android:paddingVertical="@dimen/half_common_margin"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider" />
+
+            <TextView
+                android:id="@+id/tvQuestionNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="@id/viewQuestionNo"
+                app:layout_constraintEnd_toEndOf="@id/viewQuestionNo"
+                app:layout_constraintStart_toStartOf="@id/viewQuestionNo"
+                app:layout_constraintTop_toTopOf="@id/viewQuestionNo"
+                tools:text="1" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvQuestion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/guess_the_country_from_the_flag"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_content"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/viewQuestionNo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/viewQuestionNo"
+                app:layout_constraintTop_toTopOf="@id/viewQuestionNo" />
+
+            <ImageView
+                android:id="@+id/ivFlag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/half_common_margin"
+                android:layout_marginTop="@dimen/common_margin"
+                android:background="@drawable/dr_flag_background"
+                android:paddingHorizontal="@dimen/common_margin"
+                android:paddingVertical="@dimen/margin_top"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/viewQuestionNo"
+                tools:src="@drawable/flag_ae" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerOptions"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/half_common_margin"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivFlag"
+                app:layout_constraintTop_toTopOf="@id/ivFlag"
+                app:spanCount="2"
+                tools:itemCount="4"
+                tools:listitem="@layout/item_option" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
