@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface QuestionRepository {
 
-    fun saveScheduledTime(hour: Int, minute: Int, second: Int)
+    suspend fun saveScheduledTime(timeInMillis: Long)
 
     fun getQuestionsList(): Flow<Resource<List<Question>>>
 

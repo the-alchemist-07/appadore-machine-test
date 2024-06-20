@@ -10,30 +10,31 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/half_common_margin"
+        android:layout_marginTop="@dimen/half_common_margin"
+        android:backgroundTint="@color/lightGreyCard"
         android:clickable="true"
         android:focusable="true"
-        android:layout_marginTop="@dimen/half_common_margin"
         app:cardCornerRadius="@dimen/half_common_margin"
         app:cardElevation="@dimen/no_margin"
         app:layout_constraintEnd_toEndOf="parent"
-        android:backgroundTint="@color/lightGreyCard"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:strokeColor="@color/black">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="@dimen/half_common_margin"
+            android:layout_marginVertical="@dimen/quarter_common_margin">
 
             <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvCountryName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/half_common_margin"
-                android:layout_marginVertical="@dimen/quarter_common_margin"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_content"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:textSize="@dimen/text_content"
-                android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="India" />
@@ -46,28 +47,28 @@
         android:id="@+id/tvCorrect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/quarter_common_margin"
         android:text="@string/correct"
         android:textAllCaps="true"
         android:textColor="@color/green"
         android:textSize="@dimen/text_content_small"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@id/cardContent"
-        android:layout_marginTop="@dimen/quarter_common_margin"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardContent" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tvWrong"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/quarter_common_margin"
         android:text="@string/wrong"
         android:textAllCaps="true"
         android:textColor="@color/red"
         android:textSize="@dimen/text_content_small"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@id/cardContent"
-        android:layout_marginTop="@dimen/quarter_common_margin"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardContent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

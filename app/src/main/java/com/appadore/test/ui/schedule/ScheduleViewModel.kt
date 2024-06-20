@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.appadore.test.core.common.Constants.ONE_SECOND
 import com.appadore.test.core.managers.DataStoreManager
+import com.appadore.test.domain.repository.QuestionRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.Channel
@@ -19,7 +20,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ScheduleViewModel @Inject constructor(
-    private val dataStoreManager: DataStoreManager
+    private val questionRepository: QuestionRepository
 ) : ViewModel() {
 
     private lateinit var timer: Timer
@@ -45,8 +46,15 @@ class ScheduleViewModel @Inject constructor(
         calendar.set(Calendar.MINUTE, minute!!)
         calendar.set(Calendar.SECOND, second!!)
 
+        if (calendar.time.time < System.currentTimeMillis()) {
+            viewModelScope.launch {
+                _state.send(ScheduleState.ShowMessage("Past time is not allowed"))
+            }
+            return
+        }
+
         viewModelScope.launch(Dispatchers.IO) {
-            dataStoreManager.saveScheduledTime(calendar.time.time)
+            questionRepository.saveScheduledTime(calendar.time.time)
 
             withContext(Dispatchers.Main) {
                 _state.send(ScheduleState.OnTimeScheduled)

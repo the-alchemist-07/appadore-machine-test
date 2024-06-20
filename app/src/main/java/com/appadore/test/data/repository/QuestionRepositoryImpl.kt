@@ -3,17 +3,20 @@ package com.appadore.test.data.repository
 import android.app.Application
 import com.appadore.test.core.common.Resource
 import com.appadore.test.core.common.readQuestionsFromJson
+import com.appadore.test.core.managers.DataStoreManager
 import com.appadore.test.domain.model.Question
 import com.appadore.test.domain.repository.QuestionRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import javax.inject.Inject
 
-class QuestionRepositoryImpl(
-    private val application: Application
+class QuestionRepositoryImpl @Inject constructor(
+    private val application: Application,
+    private val dataStoreManager: DataStoreManager
 ) : QuestionRepository {
 
-    override fun saveScheduledTime(hour: Int, minute: Int, second: Int) {
-        
+    override suspend fun saveScheduledTime(timeInMillis: Long) {
+        dataStoreManager.saveScheduledTime(timeInMillis)
     }
 
     override fun getQuestionsList(): Flow<Resource<List<Question>>> = flow {
@@ -23,8 +26,6 @@ class QuestionRepositoryImpl(
             emit(Resource.Success(questionsList))
         } else emit(Resource.Error(EMPTY_QUESTIONS))
     }
-
-
 
     companion object {
         const val EMPTY_QUESTIONS = "No questions found!"

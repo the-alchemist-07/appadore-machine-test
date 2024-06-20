@@ -12,6 +12,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.appadore.test.R
+import com.appadore.test.core.common.hideKeyboard
 import com.appadore.test.databinding.FragmentScheduleBinding
 import com.google.android.material.snackbar.Snackbar
 import com.otpview.OTPListener
@@ -76,7 +77,7 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
     }
 
     private fun showMessage(message: String) {
-        hideKeyboard()
+        binding.root.windowToken.hideKeyboard(requireContext())
         Snackbar.make(binding.root, message, Snackbar.LENGTH_LONG).show()
     }
 
@@ -85,7 +86,7 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
             boxViewHour.setOTP("")
             boxViewMinute.setOTP("")
             boxViewSecond.setOTP("")
-            hideKeyboard()
+            binding.root.windowToken.hideKeyboard(requireContext())
             showMessage(getString(R.string.schedule_success_message))
         }
     }
@@ -106,7 +107,7 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
         }
     }
 
-    private fun hideKeyboard() {
+    /*private fun hideKeyboard() {
         try {
             val inputMethodManager =
                 requireContext().getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
@@ -114,5 +115,5 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
         } catch (e: Exception) {
             e.printStackTrace()
         }
-    }
+    }*/
 }
